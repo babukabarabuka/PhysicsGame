@@ -33,17 +33,18 @@ public class Connection {
             double move1 = contract * p2.mass / (p1.mass + p2.mass);
             double move2 = contract * p1.mass / (p1.mass + p2.mass);
 
-            if (p1.anchor && p2.anchor) {
-                move1 = 0;
-                move2 = 0;
-            }
-            if (p1.anchor) {
+
+            if (p1.immovable()) {
                 move1 = 0;
                 move2 = contract;
             }
-            if (p2.anchor) {
+            if (p2.immovable()) {
                 move2 = 0;
                 move1 = contract;
+            }
+            if (p1.immovable() && p2.immovable()) {
+                move1 = 0;
+                move2 = 0;
             }
 
             double force = Math.abs(move1 * p1.mass) + Math.abs(move2 * p2.mass);

@@ -11,7 +11,7 @@ public class Simulation {
     public ArrayList<Point> points = new ArrayList<Point>();
     public ArrayList<Connection> connections = new ArrayList<Connection>();
 
-    public Material wood = new Material("wood", 0.5, 10, 10);
+    public Material wood = new Material("wood", 0.5, 30, 30);
 
     public Simulation () {}
 

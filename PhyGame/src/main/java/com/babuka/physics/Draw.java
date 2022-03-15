@@ -17,6 +17,19 @@ public class Draw extends JPanel {
         g2.setColor(new Color(220, 220, 180));
         g2.fillRect(0, 0, Main.window.width, Main.window.height);
 
+        if (Inputs.selectedPoint != null) {
+            g2.setColor(new Color (80, 120, 200));
+            g2.setStroke(new BasicStroke(2));
+            int radius = nodeSize + 2;
+            g2.drawArc(Inputs.selectedPoint.intX() - radius/2, Inputs.selectedPoint.intY() - radius/2, radius, radius, 90, 360);
+        }
+
+        if (Inputs.startPoint != null) {
+            g2.setColor(new Color (80, 120, 200));
+            g2.setStroke(new BasicStroke(2));
+            g2.drawLine(Inputs.startPoint.intX(), Inputs.startPoint.intY(), Inputs.mouseX, Inputs.mouseY);
+        }
+
         Connection c;
         for (int i = 0; i < Main.sim.connections.size(); i ++) {
             c = Main.sim.connections.get(i);
@@ -35,14 +48,7 @@ public class Draw extends JPanel {
                 g2.fillOval(p.intX() - nodeSize/2, p.intY() - nodeSize/2, nodeSize, nodeSize);
             }
         }
-        /*
-        if (MouseAdapter.selected != null) {
-            g2.setColor(new Color (80, 120, 200));
-            g2.setStroke(new BasicStroke(2));
-            int radius = nodeSize + 2;
-            g2.drawArc(MouseAdapter.selected.intX() - radius/2, MouseAdapter.selected.intY() - radius/2, radius, radius, 90, 360);
-        }
-         */
+
         g2.dispose();
     }
 

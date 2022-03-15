@@ -53,6 +53,14 @@ public class Point extends Vector{
         velocity.set(cpy().subtract(temp));
     }
 
+    public boolean isSelected () {
+        return this.equals(Inputs.selectedPoint);
+    }
+
+    public boolean immovable () {
+        return anchor || isSelected();
+    }
+
 
 
 

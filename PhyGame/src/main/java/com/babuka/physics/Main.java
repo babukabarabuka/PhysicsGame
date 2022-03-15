@@ -12,7 +12,7 @@ public class Main {
 
         sim.addPoint(300, 100, 1, true);
         sim.addPoint(400, 100, 1, false);
-        sim.addPoint(500, 100, 10, false);
+        sim.addPoint(500, 100, 1, false);
         sim.addConnection(0, 1, sim.wood);
         sim.addConnection(1, 2, sim.wood);
 
@@ -31,6 +31,7 @@ public class Main {
             long lastCount = 0;
 
             while (running) {
+                Inputs.update();
 
                 if (System.nanoTime() - lastCount >= oneSecond) {
                     lastCount = System.nanoTime();
